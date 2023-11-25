@@ -24,19 +24,19 @@ int main() {
         case 1:
             printf("분반을 선택하세요 (1~4)> ");
             scanf_s("%d", &div);
-            div--; // 분반이랑 인덱스 같게
+            
 
-            if (div >= 0 && div <= 3)
+            if (div - 1 >= 0 && div - 1 <= 3)
             {
                 printf("추가할 수강인원을 입력하세요: ");
                 scanf_s("%d", &stu);
 
-                if (per[div] + stu <= 40) {
-                    per[div] += stu;
-                    printf("%d분반의 수강인원이 %d명 추가되었습니다.\n", div + 1, stu);
+                if (per[div - 1] + stu <= 40) {
+                    per[div - 1] += stu;
+                    printf("%d분반의 수강인원이 %d명 추가되었습니다.\n", div, stu);
                 }
                 else {
-                    printf("%d분반은 수강인원 초과입니다.\n", div + 1);
+                    printf("%d분반은 수강인원 초과입니다.\n", div);
                 }
             }
             else {
@@ -47,20 +47,19 @@ int main() {
         case 2:
             printf("분반을 선택하세요 (1~4)> ");
             scanf_s("%d", &div);
-            div--;
 
 
-                if (div >= 0 && div <= 3)
+                if (div - 1 >= 0 && div - 1<= 3)
                 {
                     printf("감소할 수강인원을 입력하세요: ");
                     scanf_s("%d", &stu);
 
-                    if (per[div] - stu >= 0) {
-                        per[div] -= stu;
-                        printf("%d분반의 수강인원이 %d명 감소되었습니다.\n", div + 1, stu);
+                    if (per[div - 1] - stu >= 0) {
+                        per[div - 1] -= stu;
+                        printf("%d분반의 수강인원이 %d명 감소되었습니다.\n", div, stu);
                     }
                     else {
-                        printf("%d분반은 수강인원이 없습니다.\n", div + 1);
+                        printf("%d분반은 수강인원이 없습니다.\n", div );
                     }
                 }
                 else {
@@ -68,11 +67,10 @@ int main() {
                 }
             break;
 
-           if (n != 1 && n != 2)
-            {
+            default:
                 printf("프로그램을 종료합니다.\n");
                 break;
-            }
+            
         }
     }
     return 0;
